@@ -15,6 +15,7 @@ import NodeInfo from './NodeInfo';
 import TemplateModule from './TemplateModule';
 import Transfer from './Transfer';
 import Upgrade from './Upgrade';
+import Kitties from './Kitties'
 
 function Main () {
   const [accountAddress, setAccountAddress] = useState(null);
@@ -75,6 +76,9 @@ function Main () {
           <Grid.Row>
             <TemplateModule accountPair={accountPair} />
           </Grid.Row>
+          <Grid.Row>
+            <Kitties accountPair={accountPair} />
+          </Grid.Row>
         </Grid>
       </Container>
       <DeveloperConsole />
@@ -82,7 +86,7 @@ function Main () {
   );
 }
 
-export default function App () {
+export default function App() {
   return (
     <SubstrateContextProvider>
       <Main />
