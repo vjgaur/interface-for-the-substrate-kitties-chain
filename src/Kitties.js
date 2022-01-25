@@ -100,5 +100,26 @@ return () => {
 };
 };
 
-useEffect(subscribeKittyCnt, [api, keyring])
-useEffect(subscribeKitties, [api, kittyHashes])
+useEffect(subscribeKittyCnt, [api, keyring]);
+useEffect(subscribeKitties, [api, kittyHashes]);
+
+return <Grid.Column width={16}>
+<h1>Kitties</h1>
+<KittyCards kitties={kitties} accountPair={accountPair} setStatus={setStatus}/>
+<Form style={{ margin: '1em 0' }}>
+    <Form.Field style={{ textAlign: 'center' }}>
+      <TxButton
+        accountPair={accountPair} label='Create Kitty' type='SIGNED-TX' setStatus={setStatus}
+        attrs={{
+          palletRpc: 'substrateKitties',
+          callable: 'createKitty',
+          inputParams: [],
+          paramFields: []
+        }}
+      />
+    </Form.Field>
+  </Form>
+  <div style={{ overflowWrap: 'break-word' }}>{status}</div>
+</Grid.Column>
+
+
